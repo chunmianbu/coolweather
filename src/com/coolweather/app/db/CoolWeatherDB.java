@@ -1,5 +1,7 @@
 package com.coolweather.app.db;
-
+/*
+ * 已修改
+ */
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,27 +15,32 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 public class CoolWeatherDB {
-	
-	/*
-	 * 数据库名、版本
+
+	/**
+	 * 数据库名
 	 */
-	public static final String DB_NAME="cool weather";
-	public static final int VERSION=1;
+	public static final String DB_NAME = "cool_weather";
+
+	/**
+	 * 数据库版本
+	 */
+	public static final int VERSION = 1;
+
 	private static CoolWeatherDB coolWeatherDB;
+
 	private SQLiteDatabase db;
-	
-	/*
+
+	/**
 	 * 将构造方法私有化
 	 */
-	private CoolWeatherDB(Context context){
-		CoolWeatherOpenHelper dbHelper=new CoolWeatherOpenHelper(context,
-				DB_NAME,null,VERSION);
-		db=dbHelper.getWritableDatabase();
-		
-		
+	private CoolWeatherDB(Context context) {
+		CoolWeatherOpenHelper dbHelper = new CoolWeatherOpenHelper(context,
+				DB_NAME, null, VERSION);
+		db = dbHelper.getWritableDatabase();
 	}
-	/*
-	 * 获取CoolWeatherDB实例
+
+	/**
+	 * 获取CoolWeatherDB的实例。
 	 */
 	public synchronized static CoolWeatherDB getInstance(Context context) {
 		if (coolWeatherDB == null) {
@@ -144,6 +151,5 @@ public class CoolWeatherDB {
 		}
 		return list;
 	}
-
 
 }
